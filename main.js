@@ -763,3 +763,18 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = AffiliateMarketingSite;
 }
+
+/* ===== REMOVE KIMI FLOATING BUTTON ===== */
+(function killKimiBtn() {
+  const removeBtn = () => {
+    const btn = document.querySelector('button[style*="fixed"],button[style*="bottom"],button[style*="right"]');
+    if (btn && btn.textContent.includes('Kimi')) btn.remove();
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', removeBtn);
+  } else {
+    removeBtn();
+  }
+  const observer = new MutationObserver(removeBtn);
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
