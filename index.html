@@ -1,0 +1,923 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Affiliate Mastery Hub - Discover Profitable Affiliate Programs</title>
+    <meta name="description" content="Discover the most profitable affiliate programs for freelancers, entrepreneurs, and small businesses. Expert reviews, comparisons, and earning strategies."/>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Affiliate Mastery Hub - Your Guide to Profitable Affiliate Marketing"/>
+    <meta property="og:description" content="Discover top-paying affiliate programs with expert reviews and earning strategies."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://affiliatemasteryhub.com"/>
+    <meta property="og:image" content="resources/hero-image.png"/>
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Affiliate Mastery Hub - Profitable Affiliate Programs"/>
+    <meta name="twitter:description" content="Expert reviews and comparisons of the best affiliate programs for entrepreneurs."/>
+    <meta name="twitter:image" content="resources/hero-image.png"/>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="resources/logo.png"/>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #ed8936;
+            --accent: #38b2ac;
+            --neutral: #f7fafc;
+            --text: #2d3748;
+            --success: #48bb78;
+            --warning: #f6ad55;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background-color: var(--neutral);
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .hero-background {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('resources/hero-image.png') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .animate-on-scroll.animate-fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #dd7324;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(237, 137, 54, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .rating-stars {
+            color: #fbbf24;
+        }
+        
+        .commission-badge {
+            background: linear-gradient(135deg, var(--success), #22c55e);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .cookie-banner {
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+        
+        .back-to-top {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .form-error, .form-success {
+            display: none;
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .hamburger-line {
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        /* Navigation styles */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* Table of Contents styles */
+        .toc {
+            background: rgba(56, 178, 172, 0.1);
+            border-left: 4px solid var(--accent);
+        }
+        
+        .toc a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .toc a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Affiliate disclosure */
+        .affiliate-disclosure {
+            background: rgba(237, 137, 54, 0.1);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        /* Footer styles */
+        .footer-link {
+            color: #a0aec0;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+    </style>
+<script src="https://statics.moonshot.cn/sdk/preview-widgets.min.js" defer=""></script></head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center">
+                        <img src="resources/logo.png" alt="Affiliate Mastery Hub" class="h-10 w-10"/>
+                        <span class="ml-3 text-xl font-bold text-gray-900 font-display">Affiliate Mastery Hub</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link active text-gray-900 hover:text-orange-500 px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="about.html" class="nav-link text-gray-700 hover:text-orange-500 px-3 py-2 text-sm font-medium">About</a>
+                        <a href="blog.html" class="nav-link text-gray-700 hover:text-orange-500 px-3 py-2 text-sm font-medium">Blog</a>
+                        <a href="contact.html" class="nav-link text-gray-700 hover:text-orange-500 px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <a href="blog.html" class="btn-primary px-6 py-2 rounded-lg text-sm font-semibold">Start Reading</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-toggle" class="hamburger inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-orange-500 hover:bg-gray-100">
+                        <span class="hamburger-line block w-6 h-0.5 bg-current"></span>
+                        <span class="hamburger-line block w-6 h-0.5 bg-current mt-1"></span>
+                        <span class="hamburger-line block w-6 h-0.5 bg-current mt-1"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed top-16 right-0 w-64 h-full bg-white shadow-lg z-40">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-orange-500">Home</a>
+                <a href="about.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-500">About</a>
+                <a href="blog.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-500">Blog</a>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-orange-500">Contact</a>
+                <a href="blog.html" class="block px-3 py-2 text-base font-medium btn-primary mt-4">Start Reading</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-background min-h-screen flex items-center">
+        <div class="hero-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 font-display">
+                        <span id="hero-typed"></span>
+                    </h1>
+                    <p class="text-xl text-gray-200 mb-8 leading-relaxed">
+                        Join thousands of successful freelancers and entrepreneurs who&#39;ve discovered the most profitable affiliate programs. Get expert reviews, proven strategies, and actionable insights to maximize your online income.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="blog.html" class="btn-primary px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center justify-center">
+                            Explore Programs
+                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                            </svg>
+                        </a>
+                        <a href="#top-picks" class="btn-secondary px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center justify-center">
+                            View Top Picks
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="animate-on-scroll">
+                    <div class="bg-white rounded-2xl shadow-2xl p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6 font-display">Quick Stats</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                <span class="text-gray-700">Average Commission</span>
+                                <span class="text-2xl font-bold gradient-text">$127</span>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                <span class="text-gray-700">Top Program Payout</span>
+                                <span class="text-2xl font-bold gradient-text">$200+</span>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                <span class="text-gray-700">Cookie Duration</span>
+                                <span class="text-2xl font-bold gradient-text">90 Days</span>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                <span class="text-gray-700">Success Rate</span>
+                                <span class="text-2xl font-bold gradient-text">94%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup Bar -->
+    <div class="bg-orange-500 text-white py-4 sticky top-16 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-lg font-semibold">🎁 Free Affiliate Marketing Checklist</h3>
+                    <p class="text-orange-100">Get our exclusive 25-point checklist for affiliate success</p>
+                </div>
+                <form id="newsletter-form" class="flex flex-col sm:flex-row gap-2">
+                    <input type="email" name="email" placeholder="Enter your email" required="" class="px-4 py-2 rounded-lg text-gray-900 w-64 focus:outline-none focus:ring-2 focus:ring-orange-300"/>
+                    <button type="submit" class="bg-white text-orange-500 px-6 py-2 rounded-lg font-semibold hover:bg-orange-50 transition-colors">
+                        Get Free Checklist
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Picks Section -->
+    <section id="top-picks" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4 font-display">Top Affiliate Program Picks</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Handpicked affiliate programs with the highest conversion rates, best commissions, and proven track records for success.
+                </p>
+            </div>
+            
+            <div class="splide top-picks-carousel animate-on-scroll">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="card-hover bg-white rounded-xl shadow-lg p-8 border border-gray-200 h-full">
+                                <div class="flex items-center justify-between mb-6">
+                                    <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center">
+                                        <span class="text-2xl font-bold text-blue-600">S</span>
+                                    </div>
+                                    <div class="commission-badge">Up to $150</div>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2 font-display">Shopify</h3>
+                                <p class="text-gray-600 mb-4">E-commerce platform with industry-leading conversion rates and generous commissions.</p>
+                                <div class="space-y-2 mb-6">
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        30-day cookie duration
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        High conversion rates
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        Global brand recognition
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="rating-stars">
+                                        <span>★★★★★</span>
+                                        <span class="text-gray-500 text-sm ml-1">4.8</span>
+                                    </div>
+                                    <a href="#" class="affiliate-link btn-primary px-4 py-2 rounded-lg text-sm font-semibold" data-program="Shopify">
+                                        Join Program
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="splide__slide">
+                            <div class="card-hover bg-white rounded-xl shadow-lg p-8 border border-gray-200 h-full">
+                                <div class="flex items-center justify-between mb-6">
+                                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center">
+                                        <span class="text-2xl font-bold text-purple-600">E</span>
+                                    </div>
+                                    <div class="commission-badge">50% Commission</div>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2 font-display">Elementor</h3>
+                                <p class="text-gray-600 mb-4">WordPress&#39;s most popular page builder with exceptional affiliate terms and support.</p>
+                                <div class="space-y-2 mb-6">
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        50% commission rate
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        30-day cookie
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        WordPress market leader
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="rating-stars">
+                                        <span>★★★★★</span>
+                                        <span class="text-gray-500 text-sm ml-1">4.7</span>
+                                    </div>
+                                    <a href="#" class="affiliate-link btn-primary px-4 py-2 rounded-lg text-sm font-semibold" data-program="Elementor">
+                                        Join Program
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="splide__slide">
+                            <div class="card-hover bg-white rounded-xl shadow-lg p-8 border border-gray-200 h-full">
+                                <div class="flex items-center justify-between mb-6">
+                                    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center">
+                                        <span class="text-2xl font-bold text-green-600">CF</span>
+                                    </div>
+                                    <div class="commission-badge">40% Recurring</div>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2 font-display">ClickFunnels</h3>
+                                <p class="text-gray-600 mb-4">High-value sales funnel builder with recurring commissions and excellent training resources.</p>
+                                <div class="space-y-2 mb-6">
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        40% recurring commission
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        45-day cookie
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        High customer LTV
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="rating-stars">
+                                        <span>★★★★★</span>
+                                        <span class="text-gray-500 text-sm ml-1">4.6</span>
+                                    </div>
+                                    <a href="#" class="affiliate-link btn-primary px-4 py-2 rounded-lg text-sm font-semibold" data-program="ClickFunnels">
+                                        Join Program
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="splide__slide">
+                            <div class="card-hover bg-white rounded-xl shadow-lg p-8 border border-gray-200 h-full">
+                                <div class="flex items-center justify-between mb-6">
+                                    <div class="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center">
+                                        <span class="text-2xl font-bold text-red-600">S</span>
+                                    </div>
+                                    <div class="commission-badge">$200+ Per Sale</div>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2 font-display">Semrush</h3>
+                                <p class="text-gray-600 mb-4">Premium SEO toolkit with high-ticket commissions and long cookie duration.</p>
+                                <div class="space-y-2 mb-6">
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        $200+ per sale
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        120-day cookie
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        Industry-leading tool
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="rating-stars">
+                                        <span>★★★★★</span>
+                                        <span class="text-gray-500 text-sm ml-1">4.9</span>
+                                    </div>
+                                    <a href="#" class="affiliate-link btn-primary px-4 py-2 rounded-lg text-sm font-semibold" data-program="Semrush">
+                                        Join Program
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4 font-display">Why Choose Our Recommendations?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We meticulously research and test every affiliate program to ensure you get the best opportunities for sustainable income growth.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="animate-on-scroll bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 font-display">Verified Programs</h3>
+                    <p class="text-gray-600">Every program is thoroughly tested and verified for legitimacy, payment reliability, and conversion rates.</p>
+                </div>
+                
+                <div class="animate-on-scroll bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 font-display">Performance Data</h3>
+                    <p class="text-gray-600">Access real conversion rates, average earnings, and detailed performance metrics for informed decisions.</p>
+                </div>
+                
+                <div class="animate-on-scroll bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 font-display">Expert Guides</h3>
+                    <p class="text-gray-600">Comprehensive tutorials and strategies from successful affiliate marketers to maximize your earnings.</p>
+                </div>
+                
+                <div class="animate-on-scroll bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 font-display">Advanced Filtering</h3>
+                    <p class="text-gray-600">Find programs by commission type, cookie duration, niche, and audience compatibility.</p>
+                </div>
+                
+                <div class="animate-on-scroll bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 font-display">Income Tracking</h3>
+                    <p class="text-gray-600">Monitor your affiliate income across multiple programs with our tracking tools and analytics.</p>
+                </div>
+                
+                <div class="animate-on-scroll bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 font-display">Community Support</h3>
+                    <p class="text-gray-600">Connect with other affiliate marketers, share experiences, and get support from our growing community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Blog Posts Preview -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4 font-display">Latest Insights</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Stay updated with the latest trends, program changes, and expert strategies in affiliate marketing.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="animate-on-scroll bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                        <span class="text-4xl font-bold text-blue-600">S</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>E-commerce</span>
+                            <span class="mx-2">•</span>
+                            <span>Nov 20, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 font-display">
+                            <a href="blog-post.html?post=shopify-affiliate-guide" class="hover:text-orange-500 transition-colors">
+                                Shopify Affiliate Program: Complete 2024 Guide
+                            </a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">Discover how to earn up to $150 per referral with Shopify&#39;s lucrative affiliate program. Complete guide for beginners and pros.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">8 min read</span>
+                            <a href="blog-post.html?post=shopify-affiliate-guide" class="text-orange-500 hover:text-orange-600 font-semibold">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="animate-on-scroll bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
+                        <span class="text-4xl font-bold text-purple-600">E</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>Web Design</span>
+                            <span class="mx-2">•</span>
+                            <span>Nov 18, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 font-display">
+                            <a href="blog-post.html?post=elementor-affiliate-review" class="hover:text-orange-500 transition-colors">
+                                Elementor Affiliate Program: 50% Commission
+                            </a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">Maximize your earnings with Elementor&#39;s generous 50% commission structure. Perfect for WordPress and web design audiences.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">6 min read</span>
+                            <a href="blog-post.html?post=elementor-affiliate-review" class="text-orange-500 hover:text-orange-600 font-semibold">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="animate-on-scroll bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                        <span class="text-4xl font-bold text-green-600">CF</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                            <span>Marketing Tools</span>
+                            <span class="mx-2">•</span>
+                            <span>Nov 12, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 font-display">
+                            <a href="blog-post.html?post=clickfunnels-affiliate-commissions" class="hover:text-orange-500 transition-colors">
+                                ClickFunnels: 40% Recurring Commission Breakdown
+                            </a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">Learn how ClickFunnels&#39; tiered commission structure can generate substantial recurring income for affiliate marketers.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">10 min read</span>
+                            <a href="blog-post.html?post=clickfunnels-affiliate-commissions" class="text-orange-500 hover:text-orange-600 font-semibold">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="blog.html" class="btn-primary px-8 py-4 rounded-lg text-lg font-semibold inline-flex items-center">
+                    View All Articles
+                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4 font-display">Success Stories</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Hear from entrepreneurs and freelancers who&#39;ve transformed their income using our recommended affiliate programs.
+                </p>
+            </div>
+            
+            <div class="splide testimonials-carousel animate-on-scroll">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-xl shadow-lg p-8 text-center max-w-4xl mx-auto">
+                                <div class="rating-stars text-2xl mb-6">★★★★★</div>
+                                <blockquote class="text-xl text-gray-700 mb-8 italic">
+                                    &#34;The affiliate programs recommended here have completely transformed my income. I&#39;m now earning more from affiliate commissions than my freelance design work! The detailed reviews helped me choose the right programs for my audience.&#34;
+                                </blockquote>
+                                <div class="flex items-center justify-center">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-xl font-bold text-blue-600">SJ</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Sarah Johnson</h4>
+                                        <p class="text-gray-600">Freelance Designer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-xl shadow-lg p-8 text-center max-w-4xl mx-auto">
+                                <div class="rating-stars text-2xl mb-6">★★★★★</div>
+                                <blockquote class="text-xl text-gray-700 mb-8 italic">
+                                    &#34;Omar&#39;s insights on ClickFunnels and Shopify programs helped me build a sustainable recurring income stream. The step-by-step guides made implementation easy, and I&#39;m now earning $5,000+ monthly in affiliate commissions.&#34;
+                                </blockquote>
+                                <div class="flex items-center justify-center">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-xl font-bold text-green-600">MC</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Mike Chen</h4>
+                                        <p class="text-gray-600">Digital Marketer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-xl shadow-lg p-8 text-center max-w-4xl mx-auto">
+                                <div class="rating-stars text-2xl mb-6">★★★★★</div>
+                                <blockquote class="text-xl text-gray-700 mb-8 italic">
+                                    &#34;The detailed reviews and comparison guides made it easy to choose the right affiliate programs for my audience. My earnings increased by 300% in just 6 months following the strategies outlined here!&#34;
+                                </blockquote>
+                                <div class="flex items-center justify-center">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mr-4">
+                                        <span class="text-xl font-bold text-purple-600">ER</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Emma Rodriguez</h4>
+                                        <p class="text-gray-600">Content Creator</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-900 to-teal-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-on-scroll">
+                <h2 class="text-4xl font-bold text-white mb-6 font-display">Ready to Start Your Affiliate Journey?</h2>
+                <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                    Join thousands of successful affiliates who trust our recommendations. Get started with our free checklist and begin building your passive income streams today.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="blog.html" class="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors inline-flex items-center justify-center">
+                        Explore Programs
+                        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </a>
+                    <a href="about.html" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg text-lg font-semibold transition-colors inline-flex items-center justify-center">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center mb-6">
+                        <img src="resources/logo.png" alt="Affiliate Mastery Hub" class="h-10 w-10"/>
+                        <span class="ml-3 text-xl font-bold font-display">Affiliate Mastery Hub</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Your trusted source for affiliate marketing insights, program reviews, and earning strategies. We help freelancers and entrepreneurs build sustainable online income streams.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="footer-link">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer-link">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="footer-link">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="about.html" class="footer-link">About</a></li>
+                        <li><a href="blog.html" class="footer-link">Blog</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Resources</h3>
+                    <ul class="space-y-3">
+                        <li><a href="blog.html" class="footer-link">Affiliate Programs</a></li>
+                        <li><a href="blog.html" class="footer-link">Reviews &amp; Comparisons</a></li>
+                        <li><a href="blog.html" class="footer-link">Tutorials &amp; Guides</a></li>
+                        <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2024 Affiliate Mastery Hub. All rights reserved. 
+                    <a href="affiliate-disclosure.html" class="footer-link hover:text-orange-500">Affiliate Disclosure</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between">
+            <p class="text-sm text-gray-300 mb-4 sm:mb-0">
+                We use cookies to enhance your experience and analyze site traffic. By continuing to use our site, you agree to our privacy policy.
+            </p>
+            <button id="cookie-accept" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg text-sm font-semibold transition-colors">
+                Accept &amp; Continue
+            </button>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top fixed bottom-8 right-8 bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full shadow-lg z-40 transition-all">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+    
+    <!-- Google Analytics Placeholder -->
+    <script>
+        // Add your Google Analytics tracking code here
+        // gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+</body></html>
